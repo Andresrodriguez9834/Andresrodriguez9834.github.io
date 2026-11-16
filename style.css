@@ -537,7 +537,7 @@ a {
   }
 }
 
-/* Refuerza la paleta con acentos violeta, coral y lima sin perder contraste. */
+/* Paleta más viva inspirada en luces y escenarios de música urbana. */
 :root {
   --violet: #a78bfa;
   --coral: #ff8066;
@@ -546,21 +546,21 @@ a {
 
 body {
   background:
-    radial-gradient(ellipse at 12% 18%, rgba(67, 224, 255, 0.18), transparent 34%),
-    radial-gradient(ellipse at 88% 42%, rgba(167, 139, 250, 0.14), transparent 32%),
-    radial-gradient(ellipse at 50% 90%, rgba(255, 77, 141, 0.12), transparent 36%),
+    radial-gradient(ellipse at 12% 18%, rgba(67, 224, 255, 0.2), transparent 34%),
+    radial-gradient(ellipse at 88% 42%, rgba(167, 139, 250, 0.17), transparent 32%),
+    radial-gradient(ellipse at 50% 90%, rgba(255, 77, 141, 0.14), transparent 36%),
     var(--bg);
 }
 
 .site-header {
   background:
-    linear-gradient(110deg, rgba(10, 13, 18, 0.38), rgba(39, 18, 53, 0.45) 52%, rgba(10, 13, 18, 0.82)),
+    linear-gradient(110deg, rgba(10, 13, 18, 0.3), rgba(39, 18, 53, 0.42) 52%, rgba(10, 13, 18, 0.78)),
     url("https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1600&q=80")
       center/cover no-repeat;
 }
 
 .hero h1 {
-  background: linear-gradient(100deg, #fff 8%, var(--secondary) 45%, var(--primary) 78%, var(--accent));
+  background: linear-gradient(100deg, #fff 8%, var(--secondary) 42%, var(--primary) 75%, var(--accent));
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -582,8 +582,9 @@ body {
 }
 
 .floating-card {
-  border-color: rgba(167, 139, 250, 0.32);
-  background: linear-gradient(135deg, rgba(28, 23, 47, 0.88), rgba(17, 24, 32, 0.82));
+  z-index: 2;
+  border-color: rgba(167, 139, 250, 0.4);
+  background: linear-gradient(135deg, rgba(28, 23, 47, 0.93), rgba(17, 24, 32, 0.9));
 }
 
 .floating-card strong {
@@ -591,48 +592,128 @@ body {
 }
 
 .card-one {
-  box-shadow: var(--shadow), 0 0 28px rgba(67, 224, 255, 0.12);
+  box-shadow: var(--shadow), 0 0 28px rgba(67, 224, 255, 0.16);
 }
 
 .card-two {
-  border-color: rgba(255, 128, 102, 0.35);
-  box-shadow: var(--shadow), 0 0 28px rgba(255, 128, 102, 0.12);
+  border-color: rgba(255, 128, 102, 0.48);
+  box-shadow: var(--shadow), 0 0 28px rgba(255, 128, 102, 0.16);
 }
 
 .card-two span {
   color: var(--coral);
 }
 
+/* Imagen de concierto detrás del gráfico del encabezado. */
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 38px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 34px;
+  background:
+    linear-gradient(135deg, rgba(20, 12, 35, 0.3), rgba(10, 13, 18, 0.48)),
+    url("https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1000&q=85")
+      center/cover;
+  box-shadow: 0 0 45px rgba(167, 139, 250, 0.2);
+}
+
+.pulse-ring {
+  z-index: 1;
+  border-color: rgba(67, 224, 255, 0.55);
+  background: radial-gradient(circle, rgba(67, 224, 255, 0.22), rgba(167, 139, 250, 0.08) 42%, transparent 68%);
+  box-shadow: 0 0 70px rgba(67, 224, 255, 0.24);
+}
+
+.pulse-ring::before {
+  border-color: rgba(255, 77, 141, 0.62);
+}
+
+.pulse-ring::after {
+  border-color: rgba(255, 209, 102, 0.62);
+}
+
 .subgenres article {
-  background: linear-gradient(135deg, rgba(67, 224, 255, 0.07), rgba(255, 255, 255, 0.015) 55%, rgba(167, 139, 250, 0.07));
-  border-color: rgba(67, 224, 255, 0.15);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-top: 148px;
+  background: linear-gradient(135deg, rgba(67, 224, 255, 0.1), rgba(255, 255, 255, 0.025) 55%, rgba(167, 139, 250, 0.12));
+  border-color: rgba(67, 224, 255, 0.2);
   transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.subgenres article::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 auto;
+  height: 124px;
+  background-position: center 42%;
+  background-size: cover;
+}
+
+.subgenres article::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 auto;
+  height: 124px;
+  background: linear-gradient(0deg, rgba(23, 31, 42, 0.98), rgba(23, 31, 42, 0.08) 75%), linear-gradient(90deg, rgba(255, 77, 141, 0.2), rgba(67, 224, 255, 0.14));
+}
+
+.subgenres article:nth-child(1)::before {
+  background-image: url("https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=80");
+}
+
+.subgenres article:nth-child(2)::before {
+  background-image: url("https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=80");
+}
+
+.subgenres article:nth-child(3)::before {
+  background-image: url("https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=900&q=80");
+}
+
+.subgenres article:nth-child(4)::before {
+  background-image: url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=80");
 }
 
 .subgenres article:hover {
   transform: translateY(-4px);
-  border-color: rgba(67, 224, 255, 0.42);
-  background: linear-gradient(135deg, rgba(67, 224, 255, 0.13), rgba(255, 255, 255, 0.025) 55%, rgba(167, 139, 250, 0.12));
+  border-color: rgba(67, 224, 255, 0.55);
 }
 
 .subgenres article:nth-child(2) {
-  border-color: rgba(255, 77, 141, 0.22);
-  background: linear-gradient(135deg, rgba(255, 77, 141, 0.1), rgba(255, 255, 255, 0.015) 58%, rgba(255, 209, 102, 0.07));
+  border-color: rgba(255, 77, 141, 0.32);
 }
 
 .subgenres article:nth-child(2):hover {
-  border-color: rgba(255, 77, 141, 0.48);
+  border-color: rgba(255, 77, 141, 0.62);
+}
+
+.subgenres h3 {
+  color: #fff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
 }
 
 .about-image-wrap img,
 .gallery-spotlight {
-  border-color: rgba(167, 139, 250, 0.25);
-  box-shadow: var(--shadow), 0 0 32px rgba(167, 139, 250, 0.1);
+  border-color: rgba(167, 139, 250, 0.35);
+  box-shadow: var(--shadow), 0 0 32px rgba(167, 139, 250, 0.14);
+}
+
+.gallery-spotlight img {
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: saturate(1.2) contrast(1.04);
+}
+
+.gallery-spotlight:hover img {
+  transform: scale(1.03);
 }
 
 .feature-card {
-  border-top: 2px solid rgba(67, 224, 255, 0.65);
-  background: linear-gradient(155deg, rgba(30, 42, 56, 0.96), rgba(23, 20, 39, 0.96) 58%, rgba(12, 17, 25, 0.98));
+  border-top: 2px solid rgba(67, 224, 255, 0.75);
+  background: linear-gradient(155deg, rgba(30, 42, 56, 0.98), rgba(23, 20, 39, 0.97) 58%, rgba(12, 17, 25, 0.98));
 }
 
 .feature-card:nth-child(2) {
@@ -645,22 +726,32 @@ body {
 
 .feature-card:nth-child(2) .card-number {
   color: #ff9fbd;
-  background: rgba(255, 77, 141, 0.15);
+  background: rgba(255, 77, 141, 0.18);
 }
 
 .feature-card:nth-child(3) .card-number {
   color: var(--accent);
-  background: rgba(255, 209, 102, 0.14);
+  background: rgba(255, 209, 102, 0.18);
 }
 
 .feature-card:hover {
-  border-color: rgba(167, 139, 250, 0.48);
-  box-shadow: var(--shadow), 0 0 30px rgba(67, 224, 255, 0.1);
+  border-color: rgba(167, 139, 250, 0.55);
+  box-shadow: var(--shadow), 0 0 30px rgba(67, 224, 255, 0.14);
+}
+
+.feature-card li a {
+  color: var(--secondary);
+  transition: color 0.2s ease;
+}
+
+.feature-card li a:hover {
+  color: var(--accent);
 }
 
 .contact-box {
-  border-color: rgba(167, 139, 250, 0.24);
-  background: radial-gradient(ellipse at top left, rgba(167, 139, 250, 0.13), transparent 48%),
+  border-color: rgba(167, 139, 250, 0.3);
+  background:
+    radial-gradient(ellipse at top left, rgba(167, 139, 250, 0.16), transparent 48%),
     linear-gradient(145deg, rgba(23, 31, 42, 0.98), rgba(19, 17, 34, 0.98));
 }
 
@@ -676,6 +767,25 @@ body {
 
 .site-footer h3 {
   color: var(--secondary);
+}
+
+@media (max-width: 640px) {
+  .hero-visual::before {
+    inset: 35px 8px;
+  }
+
+  .pulse-ring {
+    width: min(72vw, 360px);
+    height: min(72vw, 360px);
+  }
+
+  .card-one {
+    right: 0;
+  }
+
+  .card-two {
+    left: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
