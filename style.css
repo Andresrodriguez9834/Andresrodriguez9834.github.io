@@ -536,3 +536,156 @@ a {
     max-width: 100%;
   }
 }
+
+/* Refuerza la paleta con acentos violeta, coral y lima sin perder contraste. */
+:root {
+  --violet: #a78bfa;
+  --coral: #ff8066;
+  --lime: #c4f06a;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 12% 18%, rgba(67, 224, 255, 0.18), transparent 34%),
+    radial-gradient(ellipse at 88% 42%, rgba(167, 139, 250, 0.14), transparent 32%),
+    radial-gradient(ellipse at 50% 90%, rgba(255, 77, 141, 0.12), transparent 36%),
+    var(--bg);
+}
+
+.site-header {
+  background:
+    linear-gradient(110deg, rgba(10, 13, 18, 0.38), rgba(39, 18, 53, 0.45) 52%, rgba(10, 13, 18, 0.82)),
+    url("https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1600&q=80")
+      center/cover no-repeat;
+}
+
+.hero h1 {
+  background: linear-gradient(100deg, #fff 8%, var(--secondary) 45%, var(--primary) 78%, var(--accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.nav-links a:hover,
+.footer-links a:hover {
+  color: var(--secondary);
+}
+
+.btn-primary {
+  background: linear-gradient(115deg, var(--primary), var(--coral) 55%, var(--accent));
+  box-shadow: 0 14px 34px rgba(255, 77, 141, 0.3), 0 5px 20px rgba(255, 209, 102, 0.16);
+}
+
+.btn-secondary:hover {
+  border-color: var(--violet);
+  box-shadow: 0 0 24px rgba(167, 139, 250, 0.2);
+}
+
+.floating-card {
+  border-color: rgba(167, 139, 250, 0.32);
+  background: linear-gradient(135deg, rgba(28, 23, 47, 0.88), rgba(17, 24, 32, 0.82));
+}
+
+.floating-card strong {
+  color: #fff;
+}
+
+.card-one {
+  box-shadow: var(--shadow), 0 0 28px rgba(67, 224, 255, 0.12);
+}
+
+.card-two {
+  border-color: rgba(255, 128, 102, 0.35);
+  box-shadow: var(--shadow), 0 0 28px rgba(255, 128, 102, 0.12);
+}
+
+.card-two span {
+  color: var(--coral);
+}
+
+.subgenres article {
+  background: linear-gradient(135deg, rgba(67, 224, 255, 0.07), rgba(255, 255, 255, 0.015) 55%, rgba(167, 139, 250, 0.07));
+  border-color: rgba(67, 224, 255, 0.15);
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.subgenres article:hover {
+  transform: translateY(-4px);
+  border-color: rgba(67, 224, 255, 0.42);
+  background: linear-gradient(135deg, rgba(67, 224, 255, 0.13), rgba(255, 255, 255, 0.025) 55%, rgba(167, 139, 250, 0.12));
+}
+
+.subgenres article:nth-child(2) {
+  border-color: rgba(255, 77, 141, 0.22);
+  background: linear-gradient(135deg, rgba(255, 77, 141, 0.1), rgba(255, 255, 255, 0.015) 58%, rgba(255, 209, 102, 0.07));
+}
+
+.subgenres article:nth-child(2):hover {
+  border-color: rgba(255, 77, 141, 0.48);
+}
+
+.about-image-wrap img,
+.gallery-spotlight {
+  border-color: rgba(167, 139, 250, 0.25);
+  box-shadow: var(--shadow), 0 0 32px rgba(167, 139, 250, 0.1);
+}
+
+.feature-card {
+  border-top: 2px solid rgba(67, 224, 255, 0.65);
+  background: linear-gradient(155deg, rgba(30, 42, 56, 0.96), rgba(23, 20, 39, 0.96) 58%, rgba(12, 17, 25, 0.98));
+}
+
+.feature-card:nth-child(2) {
+  border-top-color: var(--primary);
+}
+
+.feature-card:nth-child(3) {
+  border-top-color: var(--accent);
+}
+
+.feature-card:nth-child(2) .card-number {
+  color: #ff9fbd;
+  background: rgba(255, 77, 141, 0.15);
+}
+
+.feature-card:nth-child(3) .card-number {
+  color: var(--accent);
+  background: rgba(255, 209, 102, 0.14);
+}
+
+.feature-card:hover {
+  border-color: rgba(167, 139, 250, 0.48);
+  box-shadow: var(--shadow), 0 0 30px rgba(67, 224, 255, 0.1);
+}
+
+.contact-box {
+  border-color: rgba(167, 139, 250, 0.24);
+  background: radial-gradient(ellipse at top left, rgba(167, 139, 250, 0.13), transparent 48%),
+    linear-gradient(145deg, rgba(23, 31, 42, 0.98), rgba(19, 17, 34, 0.98));
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.16), 0 0 22px rgba(67, 224, 255, 0.08);
+}
+
+.site-footer {
+  background: linear-gradient(100deg, #090d14, #151126 55%, #090d14);
+}
+
+.site-footer h3 {
+  color: var(--secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
